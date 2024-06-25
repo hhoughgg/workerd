@@ -2,7 +2,7 @@
 // Licensed under the Apache 2.0 license found in the LICENSE file or at:
 // https://opensource.org/licenses/Apache-2.0
 
-import { WorkerEntrypoint } from "cloudflare-internal:workers"
+import entrypoints from 'cloudflare-internal:workers';
 
 type PipelineResponse = {
   status: string
@@ -11,7 +11,7 @@ type PipelineResponse = {
 interface Option {}
 
 // rpc target
-declare class BindingInternalEntrypoint extends WorkerEntrypoint {
+declare class BindingInternalEntrypoint extends entrypoints.WorkerEntrypoint {
   send(data: object[], options?: Option[]): Promise<PipelineResponse>
 }
 
